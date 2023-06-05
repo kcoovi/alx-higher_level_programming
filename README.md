@@ -1,4 +1,4 @@
-# High Level programming
+# High Level Programming
 ## TECHNOLOGIES
 * Python
 * Front-end
