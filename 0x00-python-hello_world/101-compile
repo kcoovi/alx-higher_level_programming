@@ -1,3 +1,4 @@
 #!/bin/bash
 pyfile="$PYFILE"
 python3 -m compileall "$pyfile"
+mv "${pyfile}c" "${pyfile%.py}c"
