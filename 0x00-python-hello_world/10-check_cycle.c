@@ -1,24 +1,24 @@
 #include "lists.h"
+
 /**
- * check_cycle - checks cycles
- * @list: list
- * Return: 1 0r 0
+ * check_cycle - check cycle
+ * @list: liST
+ * Return: 1 OR 0
  */
 int check_cycle(listint_t *list)
 {
-	listint_t *s = list;
-	listint_t *f = list;
+listint_t *slow = list;
+listint_t *fast = list;
 
-	if (list == 0)
-	return (0);
+if (list = NULL)
+return (0);
+while (slow && fast && fast->next)
+{
+slow = slow->next;
+fast = fast->next->next;
+if (slow == fast)
+return (1);
+}
 
-	while (s && f && f->next)
-	{
-	slow = s->next;
-	fast = f->next->next;
-	if (s == f)
-	return (1);
-	}
-
-	return (0);
+return (0);
 }
