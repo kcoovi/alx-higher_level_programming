@@ -1,13 +1,11 @@
-#!/usr/bin/python3
 if __name__ == "__main__":
-    """A program that imports functions from the file calculator_1.py, does some Maths, and prints the result"""
-
+    """Perform calculations with 10 and 5"""
 from calculator_1 import add, sub, mul, div
 
 a = 10
 b = 5
 
-print(add(a, b))
-print(sub(a, b))
-print(mul(a, b))
-print(div(a, b))
+print("The sum of {} and {} is: {}".format(a, b, add(a, b)),
+      "The difference between {} and {} is: {}".format(a, b, subtract(a, b)),
+      "The product of {} and {} is: {}".format(a, b, multiply(a, b)),
+      "The division of {} by {} is: {}".format(a, b, divide(a, b)), sep="\n")
