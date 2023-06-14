@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def simple_delete(a_dictionary, key=""):
-    """Delete keys"""
-    if key in a_dictionary is not None:
-        del a_dictionary[key]
-        return a_dictionary
+    """Delete key"""
+    new_dictionary = a_dictionary.copy()
+    new_dictionary.pop(key, None)
+    return new_dictionary
