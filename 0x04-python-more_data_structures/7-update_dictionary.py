@@ -2,3 +2,4 @@
 def update_dictionary(a_dictionary, key, value):
     """Update dictonary"""
     a_dictionary[key] = value
+    return a_dictionary
