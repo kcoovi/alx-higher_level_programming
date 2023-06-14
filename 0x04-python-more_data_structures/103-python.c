@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
- * print_python_list - print python list
+ * print_python_list - POrint python list
  * @p: pointer
  */
 void print_python_list(PyObject *p)
@@ -10,10 +10,10 @@ void print_python_list(PyObject *p)
 long int size, i;
 PyListObject *list = (PyListObject *)p;
 
-printf("Python list\n");
+printf("[*] Python list info\n");
 if (!PyList_Check(p))
 {
-printf(" Invalid Object\n");
+printf("  [ERROR] Invalid List Object\n");
 return;
 }
 
@@ -24,7 +24,7 @@ for (i = 0; i < size; i++)
 printf("Element %ld: %s\n", i, list->ob_item[i]->ob_type->tp_name);
 }
 /**
- * print_python_bytes - print python bytes
+ * print_python_bytes - Print python bytes
  * @p: pointer
  */
 void print_python_bytes(PyObject *p)
@@ -36,7 +36,7 @@ PyBytesObject *bytes = (PyBytesObject *)p;
 printf("[.] bytes object info\n");
 if (!PyBytes_Check(p))
 {
-printf("  [ERROR]t\n");
+printf("  [ERROR] Invalid Bytes Object\n");
 return;
 }
 
