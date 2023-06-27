@@ -1,12 +1,17 @@
 #!/usr/bin/python3
+"""Comment"""
+
 
 class Square:
+    """Comment"""
 
     def __init__(self, size=0):
+        """Comment"""
         self.size = size
 
     @property
     def size(self):
+        """Comment"""
         return (self.__size)
 
     @size.setter
@@ -18,4 +23,5 @@ class Square:
         self.__size = value
 
     def area(self):
+        """Comment"""
         return (self.__size * self.__size)
