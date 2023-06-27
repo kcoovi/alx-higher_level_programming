@@ -8,4 +8,3 @@ class Square:
     def __init__(self, size):
         """Comment"""
         self.__size = size
-
