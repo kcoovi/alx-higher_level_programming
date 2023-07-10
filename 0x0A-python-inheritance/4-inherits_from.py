@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-Main
-"""
+"""Main"""
 
 
 def inherits_from(obj, a_class):
