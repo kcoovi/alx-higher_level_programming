@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Main"""
+"""Creating a base class"""
 
 import json
 import csv
@@ -7,11 +7,11 @@ import os
 
 
 class Base:
-    """Doc"""
+    """Defining class Base"""
     __nb_objects = 0
 
     def __init__(self, id=None):
-        """Doc"""
+        """Initializing class Base"""
         if id is None:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
@@ -20,7 +20,7 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        """Doc"""
+        """Returning json string representation of list of dictionaries"""
         if list_dictionaries is None or list_dictionaries == []:
             return "[]"
         if (type(list_dictionaries) != list or
@@ -30,7 +30,7 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
-        """Doc"""
+        """Saving list of objects to file"""
         if (type(list_objs) != list and
            list_objs is not None or
            not all(isinstance(x, cls) for x in list_objs)):
@@ -50,14 +50,14 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
-        """Doc"""
+        """Returning list of objects from json string"""
         if json_string is None or len(json_string) == 0:
             return "[]"
         return json.loads(json_string)
 
     @classmethod
     def create(cls, **dictionary):
-        """Doc"""
+        """Creating an instance of class Base"""
         if cls.__name__ == 'Rectangle':
             new_instance = cls(1, 1)
         elif cls.__name__ == 'Square':
@@ -67,7 +67,7 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
-        """Doc"""
+        """Loading list of objects from file"""
         filename = cls.__name__ + ".json"
         m = []
         list_dicts = []
@@ -81,7 +81,7 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
-        """Doc"""
+        """Writes the JSON string representation of list_objs to a file."""
         if list_objs is None or list_objs == []:
             jstr = "[]"
         else:
@@ -92,7 +92,7 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
-        """Doc"""
+        """Returns the list of the JSON string representation json_string."""
         new_len = []
         if json_string is not None and json_string != '':
             if type(json_string) != str:
@@ -102,7 +102,7 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        """Doc"""
+        """Returns an instance with all attributes already set."""
         if cls.__name__ == 'Rectangle':
             dummy = cls(1, 1)
         elif cls.__name__ == 'Square':
@@ -112,7 +112,7 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
-        """Doc"""
+        """Returns a list of instances."""
 
         filename = cls.__name__ + ".json"
         new_loader = []
@@ -127,7 +127,7 @@ class Base:
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
-        """Doc"""
+        """Serializes list_objs in CSV format and saves it to a file."""
 
         if (type(list_objs) != list and
            list_objs is not None or
@@ -148,7 +148,7 @@ class Base:
 
     @classmethod
     def load_from_file_csv(cls):
-        """Doc"""
+        """A method that serializes and deserializes a list of instances."""
 
         filename = cls.__name__ + ".csv"
         new_load = []
@@ -170,7 +170,7 @@ class Base:
 
     @staticmethod
     def draw(list_rectangles, list_squares):
-        """Doc"""
+        """A static method that opens a window and draws all the instances"""
 
         import turtle
         import time
@@ -193,7 +193,9 @@ class Base:
 
     @staticmethod
     def draw_rect(t, rect):
-        """Doc"""
+        """Helper method that draws a Rectangle
+        or Square.
+        """
 
         t.penup()
         t.setpos(rect.x, rect.y)

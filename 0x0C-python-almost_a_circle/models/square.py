@@ -1,32 +1,32 @@
 #!/usr/bin/python3
-"""Main"""
+"""Creating a square class"""
 from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
-    """Doc"""
+    """Defining square class"""
     def __init__(self, size, x=0, y=0, id=None):
-        """Doc"""
+        """Initializing square class"""
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
-        """Doc"""
+        """Printing square class by overloading __str__ method"""
         return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y,
                                                  self.width)
 
     @property
     def size(self):
-        """Doc"""
+        """Getting size of square"""
         return self.width
 
     @size.setter
     def size(self, value):
-        """Doc"""
+        """Setting size of square"""
         self.width = value
         self.height = value
 
     def update(self, *args, **kwargs):
-        """Doc"""
+        """Updating square class"""
         if args is not None and len(args) != 0:
             if len(args) >= 1:
                 if type(args[0]) != int and args[0] is not None:
@@ -52,5 +52,5 @@ class Square(Rectangle):
                     self.y = value
 
     def to_dictionary(self):
-        """Doc"""
+        """Returning dictionary representation of square"""
         return {'id': self.id, 'size': self.size, 'x': self.x, 'y': self.y}
