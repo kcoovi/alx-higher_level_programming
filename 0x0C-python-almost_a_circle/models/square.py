@@ -5,16 +5,14 @@ from models.rectangle import Rectangle
 
 class Square(Rectangle):
     """Doc"""
-
     def __init__(self, size, x=0, y=0, id=None):
         """Doc"""
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
         """Doc"""
-        return "[Square] ({}) {}/{} - {}".format(self.id,
-                                                 self.x, self.y,
-                                                 self.height)
+        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y,
+                                                 self.width)
 
     @property
     def size(self):
@@ -23,45 +21,36 @@ class Square(Rectangle):
 
     @size.setter
     def size(self, value):
+        """Doc"""
         self.width = value
         self.height = value
 
     def update(self, *args, **kwargs):
         """Doc"""
-        if args and len(args) != 0:
-            argument = 0
-            for arg in args:
-                if argument == 0:
-                    if arg is None:
-                        self.__init__(self.size, self.x, self.y)
-                    else:
-                        self.id = arg
-                elif argument == 1:
-                    self.size = arg
-                elif argument == 2:
-                    self.x = arg
-                elif argument == 3:
-                    self.y = arg
-                argument += 1
-        elif kwargs and len(kwargs) != 0:
+        if args is not None and len(args) != 0:
+            if len(args) >= 1:
+                if type(args[0]) != int and args[0] is not None:
+                    raise TypeError("id must be an integer")
+                self.id = args[0]
+            if len(args) > 1:
+                self.size = args[1]
+            if len(args) > 2:
+                self.x = args[2]
+            if len(args) > 3:
+                self.y = args[3]
+        else:
             for key, value in kwargs.items():
-                if key == 'id':
-                    if value is None:
-                        self.__init__(self.size, self.x, self.y)
-                    else:
-                        self.id = value
-                elif key == 'size':
+                if key == "id":
+                    if type(value) != int and value is not None:
+                        raise TypeError("id must be an integer")
+                    self.id = value
+                elif key == "size":
                     self.size = value
-                elif key == 'x':
+                elif key == "x":
                     self.x = value
-                elif key == 'y':
+                elif key == "y":
                     self.y = value
 
     def to_dictionary(self):
         """Doc"""
-        return {
-                'id': self.id,
-                'size': self.size,
-                'x': self.x,
-                'y': self.y
-                }
+        return {'id': self.id, 'size': self.size, 'x': self.x, 'y': self.y}
