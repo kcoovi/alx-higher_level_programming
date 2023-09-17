@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Adds the State object “Louisiana” to the database hbtn_0e_6_usa."""
+""" Doc"""
 
 from sys import argv
 from sqlalchemy import create_engine
